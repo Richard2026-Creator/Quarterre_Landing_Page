@@ -19,6 +19,12 @@
     --gold: #B8A882;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Didact Gothic', sans-serif;
+    --mobile-pad: 24px;
+    --mobile-section-v: 72px;
+    --mobile-type-display: 34px;
+    --mobile-type-headline: 26px;
+    --mobile-type-body: 15px;
+    --mobile-type-label: 10px;
   }
 
   html { scroll-behavior: smooth; }
@@ -918,9 +924,86 @@
     height: 11px;
   }
 
+  /* MOBILE NAV */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 0;
+    margin-right: -10px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: var(--bone);
+    transition: background 0.3s;
+  }
+  nav.scrolled .nav-hamburger span { background: var(--ink); }
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .nav-overlay.is-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-overlay-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(245,242,236,0.45);
+    font-size: 28px;
+    line-height: 44px;
+    text-align: center;
+    padding: 0;
+    transition: color 0.2s;
+  }
+  .nav-overlay-close:hover { color: var(--bone); }
+  .nav-overlay-links {
+    list-style: none;
+    text-align: center;
+  }
+  .nav-overlay-links li { padding: 24px 0; }
+  .nav-overlay-links a {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--bone);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-overlay-links a:hover { color: var(--gold); }
+
   @media (max-width: 900px) {
     nav { padding: 22px 28px; }
     nav.scrolled { padding: 16px 28px; }
+    .nav-logo img { max-height: 28px; width: auto; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     section { padding: 80px 28px; }
     .problem, .how, .what-header, .who-intro, .directors,
     .pillars, .cases { grid-template-columns: 1fr; gap: 40px; }
@@ -929,12 +1012,116 @@
     .work-header { flex-direction: column; align-items: flex-start; gap: 20px; }
     .how-img-accent { display: none; }
     .hero { padding: 0 28px 60px; }
-    .nav-logo img { height: 42px; }
-    nav.scrolled .nav-logo img { height: 28px; }
     .hero-bands { top: 66px; }
     footer { flex-direction: column; gap: 24px; text-align: center; }
-    .invite, .right-client { padding: 100px 28px; }
     #invite { padding: 72px 28px 56px; }
+    .director-img { max-height: 340px; object-fit: cover; }
+    .footer-links a { min-height: 44px; display: inline-flex; align-items: center; }
+  }
+
+  @media (max-width: 600px) {
+    /* General */
+    section { padding: var(--mobile-section-v) var(--mobile-pad); }
+    .logo-wrapper { width: 110px; }
+
+    /* Section 1 — Nav */
+    .nav-logo img { max-height: 26px; width: auto; }
+    nav.scrolled .nav-logo img { max-height: 26px; width: auto; }
+
+    /* Section 2 — Hero */
+    .hero {
+      height: 100vh;
+      height: 100svh;
+      align-items: center;
+      padding: 0;
+    }
+    .hero-content { padding: 80px var(--mobile-pad) 48px; }
+    .hero-img { object-position: center 25%; }
+    .hero-headline { font-size: 34px; line-height: 1.12; max-width: 100%; }
+    .hero-sub { font-size: 15px; opacity: 0.7; }
+    .hero-cta {
+      background: transparent;
+      border: 1px solid var(--bone);
+      color: var(--bone);
+      padding: 13px 28px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+    }
+    .hero-cta:hover { background: var(--bone); color: var(--ink); }
+
+    /* Section 3 — Logo ticker */
+    .logo-ticker-wrap { padding: 20px 0; }
+    .logo-ticker img { height: 28px; }
+
+    /* Section 4 — Problem */
+    #problem { padding: var(--mobile-section-v) var(--mobile-pad); }
+    .problem-headline { font-size: 28px; line-height: 1.2; margin-bottom: 32px; }
+    .pain-label { font-size: var(--mobile-type-label); letter-spacing: 0.16em; margin-bottom: 6px; }
+    .pain-item { margin-bottom: 28px; border-bottom: 0.5px solid rgba(245,242,236,0.15); }
+    .pain-item p { font-size: 14px; line-height: 1.75; }
+
+    /* Section 5 — Pillars */
+    .pillars { gap: 0; }
+    .pillar { aspect-ratio: unset; overflow: visible; padding: 28px 0; border-bottom: 0.5px solid var(--rule); }
+    .pillar-img { display: none; }
+    .pillar-overlay { position: static; background: none; padding: 0; }
+    .pillar-title { font-size: 22px; font-style: italic; margin-bottom: 10px; }
+    .pillar-desc { font-size: 14px; line-height: 1.75; color: var(--ink-mid); }
+
+    /* Section 6 — How we work */
+    .how-headline { font-size: 28px; line-height: 1.2; }
+    .how-body { font-size: 15px; line-height: 1.8; }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 28px 0; }
+    .stat-num { font-size: 38px; }
+    .stat-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); }
+
+    /* Section 7 — Work / Case studies */
+    .work-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .work-headline { font-size: 26px; }
+    .cases-arrow { display: none; }
+    .cases-scroll-wrap { overflow: visible; }
+    .cases-track { transform: none !important; transition: none !important; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cases-page { display: contents; }
+    .case-featured { grid-column: auto; }
+    .case-img-wrap { aspect-ratio: 1/1; }
+    .case-info { padding: 16px 12px 24px; }
+    .case-sector { font-size: 9px; letter-spacing: 0.18em; }
+    .case-title { font-size: 18px; line-height: 1.2; }
+    .case-desc { display: none; }
+
+    /* Section 8 — Who we are */
+    .who-headline { font-size: 28px; line-height: 1.18; }
+    .who-body { font-size: 15px; color: var(--ink-mid); }
+    .director-img { max-height: 300px; object-fit: cover; object-position: top; }
+    .director-name { font-size: 22px; }
+    .director-role { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); }
+    .director-bio { font-size: 14px; line-height: 1.75; }
+
+    /* Section 9 — Invite */
+    #invite { padding: 88px var(--mobile-pad); }
+    .invite-label { font-size: 10px; letter-spacing: 0.18em; margin-bottom: 24px; }
+    .invite-display-hl { font-size: 30px; line-height: 1.1; margin-bottom: 40px; }
+    .invite-rule { width: 48px; margin: 32px auto; }
+    .invite-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 16px 24px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      background: transparent;
+      border: 1px solid var(--bone);
+      color: var(--bone);
+    }
+    .invite-cta:hover { background: var(--bone); color: var(--ink); }
+    .invite-view-link { margin-top: 20px; font-size: 10px; letter-spacing: 0.14em; opacity: 0.4; display: block; }
+
+    /* Section 10 — Footer */
+    footer { flex-direction: column; gap: 28px; text-align: center; padding: 40px var(--mobile-pad); }
+    .footer-logo img { max-height: 24px; }
+    .footer-copy { font-size: 10px; opacity: 0.25; }
+    .footer-links { flex-direction: column; gap: 14px; align-items: center; }
+    .footer-links a { font-size: 10px; letter-spacing: 0.14em; min-height: 44px; display: inline-flex; align-items: center; }
   }
 
   /* INVITE */
@@ -1111,7 +1298,21 @@
     <li><a href="#invite">Contact</a></li>
     <li><a href="#invite" class="nav-cta">Talk to us</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+  <button class="nav-overlay-close" id="nav-overlay-close" aria-label="Close menu">&times;</button>
+  <ul class="nav-overlay-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#who">Studio</a></li>
+    <li><a href="#invite">Contact</a></li>
+  </ul>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -1509,29 +1710,47 @@
       const docH = document.documentElement.scrollHeight - window.innerHeight;
       progressBar.style.width = (scrollY / docH * 100) + '%';
 
-      // Hero parallax — translate the bg wrap, zoom animation on .hero-img is unaffected
-      if (heroParallaxWrap && scrollY < heroSection.offsetHeight) {
-        heroParallaxWrap.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
-      }
-
-      // Problem section parallax
-      if (problemBg) {
-        const r = problemSection.getBoundingClientRect();
-        if (r.top < window.innerHeight && r.bottom > 0) {
-          problemBg.style.transform = 'translateY(' + ((window.innerHeight - r.top) * 0.15) + 'px)';
+      // Parallax — desktop only, skip on touch-width viewports
+      if (window.innerWidth > 900) {
+        if (heroParallaxWrap && scrollY < heroSection.offsetHeight) {
+          heroParallaxWrap.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
         }
-      }
-
-      // Invite section parallax
-      if (inviteBgEl) {
-        const r = inviteSection.getBoundingClientRect();
-        if (r.top < window.innerHeight && r.bottom > 0) {
-          inviteBgEl.style.transform = 'translateY(' + ((window.innerHeight - r.top) * 0.15) + 'px)';
+        if (problemBg) {
+          const r = problemSection.getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) {
+            problemBg.style.transform = 'translateY(' + ((window.innerHeight - r.top) * 0.15) + 'px)';
+          }
+        }
+        if (inviteBgEl) {
+          const r = inviteSection.getBoundingClientRect();
+          if (r.top < window.innerHeight && r.bottom > 0) {
+            inviteBgEl.style.transform = 'translateY(' + ((window.innerHeight - r.top) * 0.15) + 'px)';
+          }
         }
       }
     });
   }
   window.addEventListener('scroll', handleScroll, { passive: true });
+
+  // Mobile nav overlay
+  const hamburger = document.getElementById('nav-hamburger');
+  const overlay = document.getElementById('nav-overlay');
+  const overlayClose = document.getElementById('nav-overlay-close');
+  function openOverlay() {
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeOverlay() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  if (hamburger) hamburger.addEventListener('click', openOverlay);
+  if (overlayClose) overlayClose.addEventListener('click', closeOverlay);
+  if (overlay) overlay.querySelectorAll('.nav-overlay-links a').forEach(function(link) {
+    link.addEventListener('click', closeOverlay);
+  });
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
