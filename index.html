@@ -1031,28 +1031,22 @@
     /* Section 2 — Hero */
     .hero {
       height: 80vh;
-      min-height: unset;
-      align-items: flex-start;
-      padding: 140px var(--mobile-pad) 48px;
+      min-height: 520px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 var(--mobile-pad) 56px;
     }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center 25%;
-    }
-    .hero-headline { font-size: 32px; line-height: 1.14; margin-bottom: 32px; }
+    .hero-headline { font-size: 32px; line-height: 1.14; margin-bottom: 28px; }
     .hero .cta-btn {
       display: inline-block;
-      width: auto;
       background: transparent;
       color: var(--bone);
-      border: 1px solid rgba(245,242,236,0.45);
-      padding: 14px 28px;
+      border: 1px solid rgba(245,242,236,0.5);
+      padding: 14px 32px;
       font-size: 10px;
       letter-spacing: 0.2em;
     }
-    .hero-scroll { display: none; }
+    .hero .cta-btn:hover { background: var(--bone); color: var(--ink); }
 
     /* Section 3 — Logo ticker */
     .logo-ticker-wrap { padding: 20px 0; }
