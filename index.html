@@ -1030,23 +1030,47 @@
 
     /* Section 2 — Hero */
     .hero {
-      height: 80vh;
-      min-height: 520px;
-      display: flex;
-      align-items: flex-end;
-      padding: 0 var(--mobile-pad) 56px;
+      height: auto;
+      min-height: unset;
+      display: block;
+      padding: 0;
+      overflow: hidden;
     }
-    .hero-headline { font-size: 32px; line-height: 1.14; margin-bottom: 28px; }
-    .hero .cta-btn {
-      display: inline-block;
-      background: transparent;
+    .hero-bg {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/2;
+      background-size: cover;
+      background-position: center 8%;
+      display: block;
+      flex-shrink: 0;
+    }
+    .hero-content {
+      position: relative;
+      background: var(--ink);
+      padding: 36px var(--mobile-pad) 48px;
+      z-index: 2;
+    }
+    .hero-overlay { display: none; }
+    .hero-headline {
+      font-size: 28px;
+      line-height: 1.18;
       color: var(--bone);
-      border: 1px solid rgba(245,242,236,0.5);
-      padding: 14px 32px;
+      margin-bottom: 28px;
+    }
+    .hero .cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--gold);
+      color: var(--ink);
+      border: none;
+      padding: 16px 24px;
       font-size: 10px;
       letter-spacing: 0.2em;
     }
     .hero .cta-btn:hover { background: var(--bone); color: var(--ink); }
+    .hero-scroll { display: none; }
 
     /* Section 3 — Logo ticker */
     .logo-ticker-wrap { padding: 20px 0; }
