@@ -1035,6 +1035,7 @@
       min-height: unset;
       padding: 0;
       overflow: hidden;
+      background: var(--ink);
     }
     .hero-parallax-wrap {
       position: relative;
@@ -1046,6 +1047,7 @@
       height: auto;
       overflow: hidden;
       will-change: auto;
+      background: var(--ink);
     }
     .hero-img {
       position: relative;
@@ -1055,6 +1057,7 @@
       background-size: 100% auto;
       background-position: center top;
       background-repeat: no-repeat;
+      background-color: var(--ink);
     }
     .hero-content {
       position: relative;
@@ -1066,7 +1069,15 @@
       animation: none;
     }
     .hero-overlay { display: none; }
-    .hero-bands { display: none; }
+    .hero-bands {
+      display: block;
+      position: absolute;
+      top: 58px;
+      left: 0;
+      right: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
     .hero-eyebrow { display: none; }
     .hero-headline {
       font-size: 28px;
