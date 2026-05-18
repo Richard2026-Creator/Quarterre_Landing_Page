@@ -914,7 +914,72 @@
     .hero-bands { top: 66px; }
     footer { flex-direction: column; gap: 24px; text-align: center; }
     .invite, .right-client { padding: 100px 28px; }
+    #invite { padding: 72px 28px 56px; }
   }
+
+  /* INVITE */
+  #invite {
+    background: var(--ink);
+    text-align: center;
+    padding: 100px 52px 80px;
+  }
+  #invite .invite-label {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(245,242,236,0.45);
+    margin-bottom: 28px;
+  }
+  #invite .invite-display-hl {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.2vw, 46px);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--bone);
+    margin-bottom: 36px;
+  }
+  #invite .invite-rule {
+    display: block;
+    width: 60px;
+    border: none;
+    border-top: 0.5px solid rgba(245,242,236,0.22);
+    margin: 0 auto 36px;
+    padding: 0;
+  }
+  #invite .invite-cta {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bone);
+    background: transparent;
+    text-decoration: none;
+    padding: 16px 42px;
+    border: 1px solid rgba(245,242,236,0.55);
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  #invite .invite-cta:hover {
+    background: var(--bone);
+    color: var(--ink);
+    border-color: var(--bone);
+  }
+  #invite .invite-view-link {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245,242,236,0.35);
+    margin-top: 16px;
+    text-decoration: none;
+  }
+  #invite .invite-view-link:hover {
+    text-decoration: underline;
+    color: rgba(245,242,236,0.5);
+  }
+
   /* SCROLL PROGRESS BAR */
   #scroll-progress {
     position: fixed;
@@ -1361,38 +1426,15 @@
   </div>
 </section>
 
-<!-- RIGHT CLIENT -->
-<section class="right-client" id="qualify">
-  <div class="section-label reveal">The right fit</div>
-  <h2 class="rc-headline reveal reveal-delay-1">
-    The right client<br>
-    <em>doesn't need convincing.</em><br>
-    They need a studio that<br>matches their ambition.
-  </h2>
-  <p class="rc-body reveal reveal-delay-2">Quarterre's strongest relationships are long ones. Clients return across sectors and across years because they trust the thinking, not just the outcome. The brief evolves. The standard does not.</p>
-
-</section>
-
-<!-- INVITATION -->
-<section class="invite" id="invite">
-  <div class="invite-bg"></div>
-  <div class="invite-overlay"></div>
-  <div class="invite-content">
-    <div class="section-label" style="justify-content: center; color: var(--gold); margin-bottom: 28px;">
-      <span style="display: block; width: 28px; height: 0.5px; background: var(--gold);"></span>
-      Start here
-    </div>
-    <h2 class="invite-headline reveal">
-      Don't write<br>the brief yet.<br>
-      <em>Bring the ambition.</em><br>
-      And it writes itself.
-    </h2>
-    <p class="invite-sub reveal reveal-delay-1">Bring the brief. Or just bring the problem. The best projects rarely start with a complete document — they start with a question that does not quite fit the brief you have written.</p>
-    <div class="reveal reveal-delay-2">
-      <a href="mailto:hello@quarterre.com" class="cta-btn">Start the conversation</a>
-      <a href="#work" class="cta-secondary">View the work first</a>
-    </div>
+<!-- INVITE -->
+<section id="invite">
+  <div class="invite-label reveal">The right fit</div>
+  <h2 class="invite-display-hl reveal reveal-delay-1">You have the ambition.<br>We have the experience to bring it to life.</h2>
+  <hr class="invite-rule">
+  <div class="reveal reveal-delay-2">
+    <a href="mailto:hello@quarterre.com" class="invite-cta">Let's begin</a>
   </div>
+  <a href="#work" class="invite-view-link reveal reveal-delay-3">View the work</a>
 </section>
 
 <!-- FOOTER -->
