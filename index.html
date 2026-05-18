@@ -133,6 +133,14 @@
     from { transform: scale(1.06); }
     to   { transform: scale(1.0); }
   }
+  .hero-parallax-wrap {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    right: 0;
+    bottom: -20%;
+    will-change: transform;
+  }
   .hero-overlay {
     position: absolute;
     inset: 0;
@@ -248,7 +256,9 @@
 
   /* PROBLEM */
   .problem {
-    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    background: transparent;
     color: var(--bone);
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -257,6 +267,16 @@
     padding-right: 80px;
   }
   .problem .section-label { color: var(--gold); }
+  .problem .parallax-bg, #invite .parallax-bg {
+    position: absolute;
+    top: -30%;
+    left: 0;
+    right: 0;
+    bottom: -30%;
+    background: var(--ink);
+    will-change: transform;
+    z-index: -1;
+  }
   .problem-headline {
     font-family: var(--serif);
     font-size: clamp(34px, 3.8vw, 56px);
@@ -919,7 +939,9 @@
 
   /* INVITE */
   #invite {
-    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+    background: transparent;
     text-align: center;
     padding: 100px 52px 80px;
   }
@@ -1093,7 +1115,9 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-img"></div>
+  <div class="hero-parallax-wrap">
+    <div class="hero-img"></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-bands" aria-hidden="true">
     <span style="background:#EFE9A0;"></span>
@@ -1143,6 +1167,7 @@
 
 <!-- PROBLEM -->
 <section class="problem" id="problem">
+  <div class="parallax-bg"></div>
   <div class="reveal">
     <h2 class="problem-headline" style="text-align: center; max-width: 780px; margin: 0 auto 64px;">
       Quarterre holds <em>product, place and play</em> in a single conversation. Most studios divide that work. We never have.
@@ -1428,6 +1453,7 @@
 
 <!-- INVITE -->
 <section id="invite">
+  <div class="parallax-bg"></div>
   <div class="invite-label reveal">The right fit</div>
   <h2 class="invite-display-hl reveal reveal-delay-1">You have the ambition.<br>We have the experience to bring it to life.</h2>
   <hr class="invite-rule">
@@ -1456,44 +1482,56 @@
   const nav = document.getElementById('nav');
   const logoWhite = document.querySelector('.logo-white');
   const logoDark = document.querySelector('.logo-dark');
-  const heroBg = document.querySelector('.hero-bg');
   const heroSection = document.querySelector('.hero');
-  const inviteBg = document.querySelector('.invite-bg');
-  const inviteSection = document.querySelector('.invite');
+  const heroParallaxWrap = document.querySelector('.hero-parallax-wrap');
+  const problemSection = document.querySelector('.problem');
+  const problemBg = problemSection && problemSection.querySelector('.parallax-bg');
+  const inviteSection = document.getElementById('invite');
+  const inviteBgEl = inviteSection && inviteSection.querySelector('.parallax-bg');
 
   // Scroll progress bar
   const progressBar = document.createElement('div');
   progressBar.id = 'scroll-progress';
   document.body.appendChild(progressBar);
 
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const scrolled = scrollY > 60;
+  let rafPending = false;
+  function handleScroll() {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+      rafPending = false;
+      const scrollY = window.scrollY;
 
-    // Nav state + logo swap
-    nav.classList.toggle('scrolled', scrolled);
-    // logo swap handled by CSS nav.scrolled opacity rules
+      // Nav state
+      nav.classList.toggle('scrolled', scrollY > 60);
 
-    // Scroll progress bar
-    const docH = document.documentElement.scrollHeight - window.innerHeight;
-    progressBar.style.width = (scrollY / docH * 100) + '%';
+      // Scroll progress bar
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (scrollY / docH * 100) + '%';
 
-    // Hero parallax
-    if (heroBg && heroSection) {
-      if (scrollY < heroSection.offsetHeight) {
-        heroBg.style.transform = 'scale(1) translateY(' + (scrollY * 0.4) + 'px)';
+      // Hero parallax — translate the bg wrap, zoom animation on .hero-img is unaffected
+      if (heroParallaxWrap && scrollY < heroSection.offsetHeight) {
+        heroParallaxWrap.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
       }
-    }
 
-    // Invite section background parallax
-    if (inviteBg && inviteSection) {
-      const rect = inviteSection.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        const offset = (window.innerHeight - rect.top) * 0.3;
-        inviteBg.style.backgroundPosition = 'center ' + offset + 'px';
+      // Problem section parallax
+      if (problemBg) {
+        const r = problemSection.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          problemBg.style.transform = 'translateY(' + ((window.innerHeight - r.top) * 0.15) + 'px)';
+        }
       }
-    }
-  });
+
+      // Invite section parallax
+      if (inviteBgEl) {
+        const r = inviteSection.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          inviteBgEl.style.transform = 'translateY(' + ((window.innerHeight - r.top) * 0.15) + 'px)';
+        }
+      }
+    });
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
