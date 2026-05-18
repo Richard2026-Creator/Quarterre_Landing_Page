@@ -1030,41 +1030,29 @@
 
     /* Section 2 — Hero */
     .hero {
-      height: auto;
+      height: 80vh;
       min-height: unset;
-      display: block;
-      padding: 0;
-      overflow: hidden;
+      align-items: flex-start;
+      padding: 140px var(--mobile-pad) 48px;
     }
-    .hero-img {
-      position: relative;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      object-position: center 30%;
-      display: block;
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center 25%;
     }
-    .hero-overlay { display: none; }
-    .hero-content {
-      position: relative;
-      background: var(--ink);
-      padding: 40px var(--mobile-pad) 48px;
-      text-align: left;
-    }
-    .hero-headline { font-size: 32px; line-height: 1.14; color: #fff; margin-bottom: 32px; }
+    .hero-headline { font-size: 32px; line-height: 1.14; margin-bottom: 32px; }
     .hero .cta-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
+      display: inline-block;
+      width: auto;
       background: transparent;
       color: var(--bone);
-      border: 1px solid rgba(245,242,236,0.4);
-      padding: 15px 24px;
+      border: 1px solid rgba(245,242,236,0.45);
+      padding: 14px 28px;
       font-size: 10px;
       letter-spacing: 0.2em;
     }
-    .hero .cta-btn:hover { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+    .hero-scroll { display: none; }
 
     /* Section 3 — Logo ticker */
     .logo-ticker-wrap { padding: 20px 0; }
