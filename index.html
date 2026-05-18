@@ -1030,24 +1030,41 @@
 
     /* Section 2 — Hero */
     .hero {
-      height: 100vh;
-      height: 100svh;
-      align-items: center;
+      height: auto;
+      min-height: unset;
+      display: block;
       padding: 0;
+      overflow: hidden;
     }
-    .hero-content { padding: 80px var(--mobile-pad) 48px; }
-    .hero-img { object-position: center 25%; }
-    .hero-headline { font-size: 34px; line-height: 1.12; max-width: 100%; }
-    .hero-sub { font-size: 15px; opacity: 0.7; }
-    .hero-cta {
+    .hero-img {
+      position: relative;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+    .hero-overlay { display: none; }
+    .hero-content {
+      position: relative;
+      background: var(--ink);
+      padding: 40px var(--mobile-pad) 48px;
+      text-align: left;
+    }
+    .hero-headline { font-size: 32px; line-height: 1.14; color: #fff; margin-bottom: 32px; }
+    .hero .cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
       background: transparent;
-      border: 1px solid var(--bone);
       color: var(--bone);
-      padding: 13px 28px;
+      border: 1px solid rgba(245,242,236,0.4);
+      padding: 15px 24px;
       font-size: 10px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
     }
-    .hero-cta:hover { background: var(--bone); color: var(--ink); }
+    .hero .cta-btn:hover { background: var(--bone); color: var(--ink); border-color: var(--bone); }
 
     /* Section 3 — Logo ticker */
     .logo-ticker-wrap { padding: 20px 0; }
