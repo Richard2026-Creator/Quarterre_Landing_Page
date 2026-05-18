@@ -1028,30 +1028,46 @@
     .nav-logo img { max-height: 26px; width: auto; }
     nav.scrolled .nav-logo img { max-height: 26px; width: auto; }
 
-    /* Section 2 — Hero */
+    /* HERO — MOBILE */
     .hero {
+      display: block;
       height: auto;
       min-height: unset;
-      display: block;
       padding: 0;
       overflow: hidden;
     }
-    .hero-bg {
+    .hero-parallax-wrap {
       position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      bottom: auto;
       width: 100%;
-      aspect-ratio: 3/2;
-      background-size: cover;
-      background-position: center 8%;
-      display: block;
-      flex-shrink: 0;
+      height: auto;
+      overflow: hidden;
+      will-change: auto;
+    }
+    .hero-img {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      padding-bottom: 75%;
+      background-size: 100% auto;
+      background-position: center top;
+      background-repeat: no-repeat;
     }
     .hero-content {
       position: relative;
       background: var(--ink);
       padding: 36px var(--mobile-pad) 48px;
       z-index: 2;
+      opacity: 1;
+      transform: none;
+      animation: none;
     }
     .hero-overlay { display: none; }
+    .hero-bands { display: none; }
+    .hero-eyebrow { display: none; }
     .hero-headline {
       font-size: 28px;
       line-height: 1.18;
