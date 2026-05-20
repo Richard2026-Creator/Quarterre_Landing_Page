@@ -1138,10 +1138,12 @@
     /* Section 7 — Work / Case studies */
     .work-header { flex-direction: column; align-items: flex-start; gap: 16px; }
     .work-headline { font-size: 26px; }
-    .cases-arrow { display: none; }
-    .cases-scroll-wrap { overflow: visible; }
-    .cases-track { transform: none !important; transition: none !important; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .cases-page { display: contents; }
+    .cases-arrow { display: flex; top: auto; bottom: -40px; transform: none; width: 36px; height: 36px; }
+    .cases-arrow-left { left: calc(50% - 32px); }
+    .cases-arrow-right { right: calc(50% - 32px); }
+    .cases-scroll-wrap { overflow: hidden; }
+    .cases-track { display: flex; flex-direction: row; transition: transform 0.6s ease; }
+    .cases-page { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; min-width: 100%; box-sizing: border-box; }
     .case-featured { grid-column: auto; }
     .case-img-wrap { aspect-ratio: 1/1; }
     .case-info { padding: 16px 12px 24px; }
