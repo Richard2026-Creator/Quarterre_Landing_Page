@@ -1063,7 +1063,8 @@
     .hero-content {
       position: relative;
       background: var(--ink);
-      padding: 24px var(--mobile-pad) 40px;
+      padding: 24px 24px 40px;
+      max-width: 85vw;
       z-index: 2;
       opacity: 1;
       transform: none;
@@ -1081,19 +1082,19 @@
     }
     .hero-eyebrow { display: none; }
     .hero-headline {
-      font-size: 24px;
+      font-size: 28px;
       line-height: 1.2;
       color: var(--bone);
       margin-bottom: 24px;
     }
     .hero .cta-btn {
-      display: block;
-      width: 100%;
+      display: inline-block;
+      width: auto;
       text-align: center;
       background: var(--gold);
       color: var(--ink);
       border: none;
-      padding: 16px 24px;
+      padding: 14px 40px;
       font-size: 10px;
       letter-spacing: 0.2em;
     }
@@ -1102,27 +1103,35 @@
 
     /* Section 3 — Logo ticker */
     .logo-ticker-wrap { padding: 7px 0 !important; }
-    .logo-ticker img { height: 20px; width: auto; opacity: 0.5; }
+    .logo-ticker img { height: 32px; width: auto; max-width: 120px; opacity: 0.6; margin: 0 32px; }
 
     /* Section 4 — Problem */
     #problem { padding: var(--mobile-section-v) var(--mobile-pad); }
-    .problem-headline { font-size: 28px; line-height: 1.2; margin-bottom: 32px; }
+    .problem-headline { font-size: 28px; line-height: 1.2; margin-bottom: 16px; }
+    .gold-rule { margin-bottom: 40px !important; }
     .pain-label { font-size: var(--mobile-type-label); letter-spacing: 0.16em; margin-bottom: 6px; }
-    .pain-item { margin-bottom: 28px; border-bottom: 0.5px solid rgba(245,242,236,0.15); }
+    .pain-item { margin-bottom: 28px; border-top: none; border-bottom: 0.5px solid rgba(245,242,236,0.15); }
+    .pain-item:last-child { border-bottom: none; }
     .pain-item p { font-size: 14px; line-height: 1.75; }
+    .problem-section { padding-bottom: 40px; }
+    .rule-line { margin-bottom: 24px; }
 
+    .pillars-intro { padding-bottom: 28px !important; }
+    .pillars-heading { font-size: 28px !important; line-height: 1.15; }
     /* Section 5 — Pillars */
+    .what { padding-bottom: 40px; }
     .pillars { gap: 0; }
     .pillar { aspect-ratio: unset; overflow: visible; padding: 28px 0; border-bottom: 0.5px solid var(--rule); }
-    .pillar-img { display: none; }
+    .pillar-img { display: block; width: 100%; height: auto; }
     .pillar-overlay { position: static; background: none; padding: 0; }
-    .pillar-title { font-size: 22px; font-style: italic; margin-bottom: 10px; }
+    .pillar-title { font-size: 22px; font-style: italic; margin-bottom: 10px; color: var(--ink); }
     .pillar-desc { font-size: 14px; line-height: 1.75; color: var(--ink-mid); }
 
     /* Section 6 — How we work */
     .how-headline { font-size: 28px; line-height: 1.2; }
     .how-body { font-size: 15px; line-height: 1.8; }
-    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 28px 0; }
+    .stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 28px 0; border-bottom: none; }
+    .how { padding-bottom: 58px; }
     .stat-num { font-size: 38px; }
     .stat-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); }
 
@@ -1139,6 +1148,8 @@
     .case-sector { font-size: 9px; letter-spacing: 0.18em; }
     .case-title { font-size: 18px; line-height: 1.2; }
     .case-desc { display: none; }
+    .case.touch-active .case-hover { opacity: 1; }
+    .case.touch-active .case-img { transform: scale(1.03); filter: grayscale(0%); }
 
     /* Section 8 — Who we are */
     .who-headline { font-size: 28px; line-height: 1.18; }
@@ -1269,13 +1280,14 @@
   }
 
   .logo-ticker img {
-    height: 36px;
+    height: 32px;
     width: auto;
+    max-width: 120px;
     object-fit: contain;
     filter: grayscale(100%);
-    opacity: 0.4;
+    opacity: 0.6;
     flex-shrink: 0;
-    margin-right: 100px;
+    margin: 0 32px;
   }
 
   @keyframes ticker {
@@ -1285,15 +1297,16 @@
 
   .hero-cta {
     display: inline-block;
-    margin-top: 16px;
+    margin-top: -6px;
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink);
     background: var(--gold);
     text-decoration: none;
-    padding: 18px 48px;
+    padding: 16px 43px;
+    margin-bottom: 30px;
     transition: background 0.3s, color 0.3s;
   }
   .hero-cta:hover {
@@ -1424,7 +1437,7 @@
     <h2 class="problem-headline" style="text-align: center; max-width: 780px; margin: 0 auto 64px;">
       Quarterre holds <em>product, place and play</em> in a single conversation. Most studios divide that work. We never have.
     </h2>
-    <div style="width: 40px; height: 0.5px; background: var(--gold); margin: 0 auto 80px;"></div>
+    <div class="gold-rule" style="width: 40px; height: 0.5px; background: var(--gold); margin: 0 auto 80px;"></div>
   </div>
   <div class="reveal reveal-delay-1">
     <div class="problem-body">
@@ -1448,8 +1461,8 @@
 
 <!-- WHAT WE DO -->
 <section class="what" id="what">
-  <div style="text-align: center; padding-bottom: 56px;">
-    <p style="font-family: var(--serif); font-size: clamp(36px, 4vw, 56px); font-weight: 300; font-style: italic; color: var(--ink); letter-spacing: 0.01em; margin-bottom: 20px;">Here is what that looks like.</p>
+  <div class="pillars-intro" style="text-align: center; padding-bottom: 56px;">
+    <p class="pillars-heading" style="font-family: var(--serif); font-size: clamp(36px, 4vw, 56px); font-weight: 300; font-style: italic; color: var(--ink); letter-spacing: 0.01em; margin-bottom: 20px;">Here is what that looks like.</p>
     <p style="font-family: var(--sans); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); line-height: 1.7;">Product, place and play. Not every practice thinks this way.</p>
   </div>
   <div class="pillars">
@@ -1856,6 +1869,19 @@ arrowRight.addEventListener('click', () => goTo(current + 1));
 arrowLeft.addEventListener('click', () => goTo(current - 1));
 
 goTo(0);
+
+(function () {
+  if (!('ontouchstart' in window)) return;
+  document.querySelectorAll('.case').forEach(function (caseEl) {
+    caseEl.addEventListener('touchstart', function (e) {
+      var isActive = caseEl.classList.contains('touch-active');
+      document.querySelectorAll('.case').forEach(function (el) {
+        el.classList.remove('touch-active');
+      });
+      if (!isActive) caseEl.classList.add('touch-active');
+    }, { passive: true });
+  });
+}());
 </script>
 </body>
 </html>
