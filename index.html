@@ -1136,7 +1136,7 @@
     .stat-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); }
 
     /* Section 7 — Work / Case studies */
-    .work-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .work-header { flex-direction: column; align-items: flex-start; gap: 28px; }
     .work-headline { font-size: 26px; }
     .cases-arrow { display: flex; top: auto; bottom: 8px; transform: none; width: 32px; height: 32px; }
     .cases-arrow { background: transparent; border: 0.5px solid var(--gold); border-radius: 2px; color: var(--bone); }
@@ -1166,15 +1166,15 @@
     .director-bio { font-size: 14px; line-height: 1.75; }
 
     /* Section 9 — Invite */
-    #invite { padding: 88px var(--mobile-pad); }
+    #invite { padding: 56px var(--mobile-pad); text-align: center; }
     .invite-label { font-size: 10px; letter-spacing: 0.18em; margin-bottom: 24px; }
     .invite-display-hl { font-size: 30px; line-height: 1.1; margin-bottom: 40px; }
     .invite-rule { width: 48px; margin: 32px auto; }
     .invite-cta {
-      display: block;
-      width: 100%;
+      display: inline-block;
+      width: auto;
       text-align: center;
-      padding: 16px 24px;
+      padding: 16px 48px;
       font-size: 10px;
       letter-spacing: 0.2em;
       background: transparent;
@@ -1190,6 +1190,8 @@
     .footer-copy { font-size: 10px; opacity: 0.25; }
     .footer-links { flex-direction: column; gap: 14px; align-items: center; }
     .footer-links a { font-size: 10px; letter-spacing: 0.14em; min-height: 44px; display: inline-flex; align-items: center; }
+    .footer-links .nav-cta { display: none; }
+    .footer-links { display: flex; flex-direction: row; justify-content: center; gap: 32px; }
   }
 
   /* INVITE */
