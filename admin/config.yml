@@ -1,0 +1,274 @@
+backend:
+  name: github
+  repo: Richard2026-Creator/Quarterre_Landing_Page
+  branch: master
+
+media_folder: images
+public_folder: images
+
+collections:
+  - name: landing
+    label: Landing Page
+    files:
+      - name: landing
+        label: Landing Page Content
+        file: _data/content.yaml
+        fields:
+
+          # ─── NAVIGATION ───────────────────────────────────────────────
+          - label: Navigation
+            name: navigation
+            widget: object
+            fields:
+              - { label: "Work link label",    name: work,    widget: string, default: "Work" }
+              - { label: "Studio link label",  name: studio,  widget: string, default: "Studio" }
+              - { label: "Contact link label", name: contact, widget: string, default: "Contact" }
+              - { label: "CTA button text",    name: cta,     widget: string, default: "Talk to us" }
+
+          # ─── HERO ─────────────────────────────────────────────────────
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - label: Headline text
+                name: headline
+                widget: text
+                default: "From the fastest car on earth. To the world's biggest toy company."
+                hint: >
+                  To introduce a gold italic phrase later, insert {phrase} at the desired position
+                  and fill in the field below. Currently unused — the hero headline is plain text.
+              - label: "Gold/italic phrase (optional)"
+                name: headline_phrase
+                widget: string
+                required: false
+                default: ""
+                hint: "Leave blank — the hero headline currently has no gold phrase."
+              - { label: "CTA button text",  name: cta,   widget: string, default: "Start a conversation" }
+              - { label: "Background image", name: image, widget: image,  default: "images/hero-background.jpg" }
+
+          # ─── PROBLEM SECTION ──────────────────────────────────────────
+          - label: Problem Section
+            name: problem
+            widget: object
+            fields:
+              - label: Headline text
+                name: headline
+                widget: text
+                default: "Quarterre holds {phrase} in a single conversation. Most studios divide that work. We never have."
+                hint: >
+                  {phrase} is a placeholder — do not remove it. It marks exactly where the gold
+                  italic text (defined in the field below) will be inserted when the page renders.
+              - label: "Gold/italic phrase — headline"
+                name: headline_phrase
+                widget: string
+                default: "product, place and play"
+                hint: "Appears in gold italic inside the headline above, replacing {phrase}."
+              - label: Pain items
+                name: pain_items
+                widget: list
+                min: 3
+                max: 3
+                fields:
+                  - { label: "Label", name: label, widget: string, hint: "Short label — e.g. 'Product. Space.'" }
+                  - { label: "Body",  name: body,  widget: text }
+              - label: Closing statement text
+                name: closing
+                widget: text
+                default: "Different categories. Different scales. {phrase}"
+                hint: >
+                  {phrase} is a placeholder — do not remove it. It marks where the gold italic
+                  text (defined in the field below) will appear at the end of the sentence.
+              - label: "Gold/italic phrase — closing"
+                name: closing_phrase
+                widget: string
+                default: "The same quality of thought."
+                hint: "Appears in gold italic at the end of the closing statement, replacing {phrase}."
+
+          # ─── WHAT WE DO (PILLARS) ─────────────────────────────────────
+          - label: What We Do
+            name: pillars
+            widget: object
+            fields:
+              - { label: "Section heading",  name: heading,  widget: string, default: "Here is what that looks like." }
+              - { label: "Section subtitle", name: subtitle, widget: string, default: "Product, place and play. Not every practice thinks this way." }
+              - label: Pillars
+                name: items
+                widget: list
+                min: 3
+                max: 3
+                fields:
+                  - { label: "Number", name: number, widget: string, hint: "e.g. 01" }
+                  - { label: "Title",  name: title,  widget: string }
+                  - { label: "Body",   name: body,   widget: text }
+                  - { label: "Image",  name: image,  widget: image }
+
+          # ─── HOW WE WORK ──────────────────────────────────────────────
+          - label: How We Work
+            name: how
+            widget: object
+            fields:
+              - { label: "Section label", name: label, widget: string, default: "How we work" }
+              - label: Headline text
+                name: headline
+                widget: text
+                default: "Three directors. {phrase} From the start."
+                hint: >
+                  {phrase} is a placeholder — do not remove it. It marks where the gold italic
+                  text (defined in the field below) will be inserted between the two plain sentences.
+              - label: "Gold/italic phrase — headline"
+                name: headline_phrase
+                widget: string
+                default: "One complete conversation, never handed off."
+                hint: "Appears in gold italic inside the headline above, replacing {phrase}."
+              - { label: "Body paragraph 1", name: body_1, widget: text }
+              - { label: "Body paragraph 2", name: body_2, widget: text }
+              - label: Stats
+                name: stats
+                widget: list
+                min: 3
+                max: 3
+                fields:
+                  - { label: "Number",  name: number,  widget: number }
+                  - { label: "Caption", name: caption, widget: string }
+              - { label: "Main image",   name: main_image,   widget: image, default: "images/how-main.jpg" }
+              - { label: "Accent image", name: accent_image, widget: image, default: "images/how-accent.jpg" }
+
+          # ─── SELECTED WORK ────────────────────────────────────────────
+          - label: Selected Work
+            name: work
+            widget: object
+            fields:
+              - { label: "Section label",      name: label, widget: string, default: "Selected work" }
+              - label: Section headline text
+                name: headline
+                widget: text
+                default: "Different categories.\nDifferent scales.\n{phrase}"
+                hint: >
+                  {phrase} is a placeholder — do not remove it. It marks where the gold italic
+                  text (defined in the field below) will appear at the end of the headline.
+              - label: "Gold/italic phrase — headline"
+                name: headline_phrase
+                widget: string
+                default: "The same quality of thought."
+                hint: "Appears in gold italic at the end of the headline, replacing {phrase}."
+              - { label: "Work CTA link text", name: cta,   widget: string, default: "Start a conversation →" }
+              - label: Case studies
+                name: cases
+                widget: list
+                min: 8
+                max: 8
+                fields:
+                  - { label: "Sector tags",              name: sector,       widget: string, hint: "e.g. Product · Automotive" }
+                  - { label: "Client / Project title",   name: title,        widget: string }
+                  - { label: "Short description (card)", name: description,  widget: text }
+                  - { label: "Hover detail (on image)",  name: hover_detail, widget: text }
+                  - { label: "Image",                    name: image,        widget: image }
+
+          # ─── STUDIO (WHO WE ARE) ──────────────────────────────────────
+          - label: Studio
+            name: studio
+            widget: object
+            fields:
+              - { label: "Section label", name: label, widget: string, default: "Who we are" }
+              - label: Headline text
+                name: headline
+                widget: text
+                default: "Serious product. Serious place. {phrase}"
+                hint: >
+                  {phrase} is a placeholder — do not remove it. It marks where the gold italic
+                  text (defined in the field below) will appear at the end of the headline.
+              - label: "Gold/italic phrase — headline"
+                name: headline_phrase
+                widget: string
+                default: "Serious play-led design."
+                hint: "Appears in gold italic at the end of the headline above, replacing {phrase}."
+              - label: Body sections
+                name: body_sections
+                widget: object
+                fields:
+                  - { label: "The team — label",         name: team_label,        widget: string, default: "The team" }
+                  - { label: "The team — body",          name: team_body,         widget: text }
+                  - { label: "The approach — label",     name: approach_label,    widget: string, default: "The approach" }
+                  - { label: "The approach — body",      name: approach_body,     widget: text }
+                  - { label: "The scale — label",        name: scale_label,       widget: string, default: "The scale" }
+                  - { label: "The scale — body",         name: scale_body,        widget: text }
+                  - { label: "The commitment — label",   name: commitment_label,  widget: string, default: "The commitment" }
+                  - { label: "The commitment — body",    name: commitment_body,   widget: text }
+              - label: Directors
+                name: directors
+                widget: object
+                fields:
+                  - label: "Director 1 — Clive Hartley"
+                    name: clive
+                    widget: object
+                    fields:
+                      - { label: "Name", name: name, widget: string, default: "Clive Hartley" }
+                      - label: Bio paragraphs
+                        name: bio
+                        widget: list
+                        field:
+                          label: Paragraph
+                          name: paragraph
+                          widget: text
+                        default:
+                          - "Transport Design at Coventry. MA at the Royal College of Art, London."
+                          - "Has worked for Mercedes-Benz, Nissan and Porsche Design, most recently as Transport Design Manager at their studio in Zell am See, Austria."
+                          - "A broad curiosity in current affairs, arts and culture informs a design perspective that draws from well beyond the studio."
+                      - { label: "Portrait photo", name: portrait, widget: image, default: "images/director-clive.png" }
+                  - label: "Director 2 — Dr Daniele Ceccomori"
+                    name: daniele
+                    widget: object
+                    fields:
+                      - { label: "Name", name: name, widget: string, default: "Dr Daniele Ceccomori" }
+                      - label: Bio paragraphs
+                        name: bio
+                        widget: list
+                        field:
+                          label: Paragraph
+                          name: paragraph
+                          widget: text
+                        default:
+                          - "Mechanical Engineering at Politecnico di Milano. Transport Design at Art Center College of Design."
+                          - "Formerly Head of Product Design at Bentley, with project credits spanning Ford, Honda, Rolls-Royce and Ducati."
+                          - "A passion for classic Italian design drives his rare ability to hold technical rigour and fresh aesthetic expression in the same hand."
+                      - { label: "Portrait photo", name: portrait, widget: image, default: "images/director-daniele.png" }
+                  - label: "Director 3 — Nick Mannion"
+                    name: nick
+                    widget: object
+                    fields:
+                      - { label: "Name", name: name, widget: string, default: "Nick Mannion" }
+                      - label: Bio paragraphs
+                        name: bio
+                        widget: list
+                        field:
+                          label: Paragraph
+                          name: paragraph
+                          widget: text
+                        default:
+                          - "Where others design objects, Nick designs moments. Working closely with LEGO, he has built toy concepts, interactive experiences and playful learning activities that put the human at the centre of every decision."
+                          - "His limited-edition Supermodified Mod:1 and Mod:2 robots have become cult collectables — proof that when character and form are perfectly matched, the result is something people genuinely want to keep."
+                      - { label: "Portrait photo", name: portrait, widget: image, default: "images/director-nick.png" }
+
+          # ─── THE RIGHT FIT ────────────────────────────────────────────
+          - label: The Right Fit
+            name: invite
+            widget: object
+            fields:
+              - { label: "Section label",       name: label,     widget: string, default: "The right fit" }
+              - label: Headline
+                name: headline
+                widget: text
+                default: "You have the ambition. We have the experience to bring it to life."
+              - { label: "CTA button text",     name: cta,       widget: string, default: "Let's begin" }
+              - { label: "Secondary link text", name: view_link, widget: string, default: "View the work" }
+
+          # ─── FOOTER ───────────────────────────────────────────────────
+          - label: Footer
+            name: footer
+            widget: object
+            fields:
+              - { label: "Copyright line",     name: copyright, widget: string, default: "© 2026 Quarterre. London." }
+              - { label: "Work link label",    name: work,      widget: string, default: "Work" }
+              - { label: "Studio link label",  name: studio,    widget: string, default: "Studio" }
+              - { label: "Contact link label", name: contact,   widget: string, default: "Contact" }
+              - { label: "CTA text",           name: cta,       widget: string, default: "Talk to us" }
