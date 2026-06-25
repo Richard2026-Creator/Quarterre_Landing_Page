@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quarterre — Product. Place. Play.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Didact+Gothic&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -17,8 +14,8 @@
     --ink-light: #8A8679;
     --rule: rgba(26,24,21,0.12);
     --gold: #B8A882;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Didact Gothic', sans-serif;
+    --serif: 'Apercu', sans-serif;
+    --sans: 'Halyard Micro', sans-serif;
     --mobile-pad: 24px;
     --mobile-section-v: 72px;
     --mobile-type-display: 34px;
@@ -51,7 +48,7 @@
     transition: background 0.4s, padding 0.3s;
   }
   nav.scrolled {
-    background: rgba(245,242,236,0.96);
+    background: rgba(255,253,245,0.96);
     backdrop-filter: blur(12px);
     padding: 18px 52px;
     border-bottom: 0.5px solid var(--rule);
@@ -94,7 +91,7 @@
   .nav-links a {
     position: relative;
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: 13.2px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     text-decoration: none;
@@ -921,7 +918,7 @@
   .hero-bands span {
     display: block;
     width: 100%;
-    height: 11px;
+    height: 6px;
   }
 
   /* MOBILE NAV */
@@ -1108,7 +1105,7 @@
     /* Section 4 — Problem */
     #problem { padding: var(--mobile-section-v) var(--mobile-pad); }
     .problem-headline { font-size: 28px; line-height: 1.2; margin-bottom: 16px; }
-    .gold-rule { margin-bottom: 40px !important; }
+    .gold-rule { margin-bottom: 16px !important; }
     .pain-label { font-size: var(--mobile-type-label); letter-spacing: 0.16em; margin-bottom: 6px; }
     .pain-item { margin-bottom: 28px; border-top: none; border-bottom: 0.5px solid rgba(245,242,236,0.15); }
     .pain-item:last-child { border-bottom: none; }
@@ -1124,7 +1121,7 @@
     .pillar { aspect-ratio: unset; overflow: visible; padding: 28px 0; border-bottom: 0.5px solid var(--rule); }
     .pillar-img { display: block; width: 100%; height: auto; }
     .pillar-overlay { position: static; background: none; padding: 0; }
-    .pillar-title { font-size: 22px; font-style: italic; margin-bottom: 10px; color: var(--ink); }
+    .pillar-title { font-size: 22px; font-style: normal; margin-bottom: 10px; color: var(--ink); }
     .pillar-desc { font-size: 14px; line-height: 1.75; color: var(--ink-mid); }
 
     /* Section 6 — How we work */
@@ -1346,12 +1343,93 @@
     background: var(--gold) !important;
     color: var(--bone) !important;
     border-radius: 2px;
-    font-size: 12px !important;
+    font-size: 13.2px !important;
     letter-spacing: 0.14em !important;
   }
   .nav-cta:hover {
     opacity: 0.88;
   }
+
+  /* FONTS — Apercu Medium / Halyard Micro / Freight Text Pro */
+  @font-face {
+    font-family: 'Apercu';
+    src: url('fonts/apercu-medium.woff2') format('woff2'),
+         url('fonts/apercu-medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Halyard Micro';
+    src: url('fonts/HalyardMicMed.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Freight Text Pro';
+    src: url('fonts/Freight_Text_Pro-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  /* Apercu size calibration — medium weight reads optically larger than Cormorant 300.
+     Clamp minimums are set as mobile values (this block follows the mobile media queries
+     in the cascade, so these minimums govern small viewports). */
+  .hero-headline       { font-family: 'Apercu', sans-serif; font-weight: 500; font-size: clamp(28px, 4.4vw, 62px); letter-spacing: -0.015em; line-height: 1.1; }
+  .problem-band { width: 100%; height: 6px; background: #FEE058; }
+  .what-band    { width: 100%; height: 6px; background: #F98383; }
+  .how-band     { width: 100%; height: 6px; background: #9DE7DA; }
+  .work-band    { width: 100%; height: 6px; background: #607276; }
+  .who-band     { width: 100%; height: 6px; background: #FEE058; }
+  .invite-band  { width: 100%; height: 6px; background: #F98383; }
+
+  .band-draw {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 2.1s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .band-draw.drawn { clip-path: inset(0 0% 0 0); }
+
+  @media (max-width: 600px) {
+    .problem-band { height: 4px !important; }
+    .what-band    { height: 4px !important; }
+    .how-band     { height: 4px !important; }
+    .work-band    { height: 4px !important; }
+    .who-band     { height: 4px !important; }
+    .invite-band  { height: 4px !important; }
+    .hero-headline { font-size: 28px; line-height: 1.2; letter-spacing: -0.01em; }
+    .pillars-heading { font-size: 24px !important; line-height: 1.8 !important; letter-spacing: 0 !important; margin-bottom: 8px !important; }
+    .pillars-intro > p + p { font-size: 14px !important; }
+    #problem .reveal-delay-1 > p { padding: 28px 0 !important; line-height: 1.2 !important; font-style: normal !important; color: #fff !important; }
+    #problem .reveal-delay-1 > p em { color: var(--gold); font-style: italic; }
+    .hero-bands span { height: 4px !important; }
+  }
+  .problem-headline    { font-size: clamp(24px, 2.6vw, 40px); letter-spacing: -0.01em;  line-height: 1.18; }
+  .pillars-heading     { font-size: clamp(24px, 2.6vw, 40px) !important; letter-spacing: -0.01em !important; line-height: 1.18 !important; font-style: normal !important; }
+  .how-headline        { font-size: clamp(24px, 2.4vw, 36px); letter-spacing: -0.01em;  line-height: 1.2; }
+  .work-headline       { font-size: clamp(22px, 2.8vw, 42px); letter-spacing: -0.01em;  line-height: 1.18; }
+  .who-headline        { font-size: clamp(24px, 2.8vw, 42px); letter-spacing: -0.01em;  line-height: 1.18; }
+  .rc-headline         { font-size: clamp(24px, 3.2vw, 50px); letter-spacing: -0.01em;  line-height: 1.14; }
+  .invite-display-hl   { font-size: clamp(26px, 2.2vw, 34px) !important; letter-spacing: -0.01em; line-height: 1.22; }
+  .pillar-title        { font-size: 21px; letter-spacing: -0.005em; }
+  .case-title          { font-size: 18px; letter-spacing: -0.005em; }
+  .director-name       { font-size: 19px; letter-spacing: -0.005em; }
+  .stat-num            { font-size: 34px; letter-spacing: -0.02em; }
+  .nav-overlay-links a { font-size: 26px; letter-spacing: -0.01em; }
+
+  /* Body text — Freight Text Pro Light */
+  .pillar-desc,
+  .how-body,
+  .case-desc,
+  .who-body,
+  .director-bio,
+  .rc-body,
+  .invite-sub,
+  .pain-item p    { font-family: 'Freight Text Pro', serif; font-weight: 300; line-height: 1.74; }
+
+  #problem .reveal-delay-1 > p em { color: var(--gold); }
+
+  /* Italic editorial text — Freight in oblique for quotes and case hover */
+  .rc-quote,
+  .case-hover p   { font-family: 'Freight Text Pro', serif; font-weight: 300; line-height: 1.62; }
 </style>
 </head>
 <body>
@@ -1393,10 +1471,10 @@
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-bands" aria-hidden="true">
-    <span style="background:#EFE9A0;"></span>
-    <span style="background:#E07272;"></span>
-    <span style="background:#A6CCBB;"></span>
-    <span style="background:#6A9092;"></span>
+    <span style="background:#FEE058; height:6px;"></span>
+    <span style="background:#F98383; height:6px;"></span>
+    <span style="background:#9DE7DA; height:6px;"></span>
+    <span style="background:#607276; height:6px;"></span>
   </div>
   <div class="hero-content">
     <h1 class="hero-headline">
@@ -1437,6 +1515,7 @@
     <img src="Quarterre Web Images/ISRI.png" alt="ISRI">
   </div>
 </div>
+<div class="problem-band band-draw"></div>
 
 <!-- PROBLEM -->
 <section class="problem" id="problem">
@@ -1462,15 +1541,16 @@
         <p>Everyone here believes in what you do but walk through the door and nothing tells that story. The work is extraordinary. The place that holds it is ordinary.</p>
       </div>
     </div>
-    <p style="color: rgba(245,242,236,0.75); font-size: 24px; font-family: var(--serif); font-style: italic; line-height: 1.8; padding: 72px 0;">Different categories. Different scales. The same quality of thought.</p>
+    <p style="color: rgba(245,242,236,0.75); font-size: 24px; font-family: var(--serif); font-style: italic; line-height: 1.8; padding: 72px 0;">Different categories. Different scales. <em>The same quality of thought.</em></p>
   </div>
 </section>
+<div class="what-band band-draw"></div>
 
 <!-- WHAT WE DO -->
 <section class="what" id="what">
   <div class="pillars-intro" style="text-align: center; padding-bottom: 56px;">
-    <p class="pillars-heading" style="font-family: var(--serif); font-size: clamp(36px, 4vw, 56px); font-weight: 300; font-style: italic; color: var(--ink); letter-spacing: 0.01em; margin-bottom: 20px;">Here is what that looks like.</p>
-    <p style="font-family: var(--sans); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); line-height: 1.7;">Product, place and play. Not every practice thinks this way.</p>
+    <p class="pillars-heading" style="font-family: var(--serif); font-size: clamp(36px, 4vw, 56px); font-weight: 300; font-style: normal; color: var(--ink); letter-spacing: 0; margin-bottom: 20px;">Here is what that looks like.</p>
+    <p style="font-family: 'Freight Text Pro', serif; font-weight: 300; font-style: italic; font-size: 21px; letter-spacing: 0; text-transform: none; color: var(--ink-light); line-height: 1.7;">Product, place and play. Not every practice thinks this way.</p>
   </div>
   <div class="pillars">
     <div class="pillar reveal">
@@ -1503,6 +1583,7 @@
 <div class="section-cta">
   <a href="/contact">See what's possible</a>
 </div>
+<div class="how-band band-draw"></div>
 
 <!-- HOW WE WORK -->
 <section class="how" id="how">
@@ -1535,6 +1616,8 @@
     </div>
   </div>
 </section>
+
+<div class="work-band band-draw"></div>
 
 <!-- THE WORK -->
 <section class="work" id="work">
@@ -1666,6 +1749,8 @@
 </div>
 </section>
 
+<div class="who-band band-draw"></div>
+
 <!-- WHO WE ARE -->
 <section class="who" id="who">
   <div class="who-intro">
@@ -1722,6 +1807,8 @@
     </div>
   </div>
 </section>
+
+<div class="invite-band band-draw"></div>
 
 <!-- INVITE -->
 <section id="invite">
@@ -1834,6 +1921,18 @@
     });
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
+
+  // Section band draw-from-left animation
+  const bandDrawEls = document.querySelectorAll('.band-draw');
+  const bandObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('drawn');
+        bandObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0 });
+  bandDrawEls.forEach(el => bandObserver.observe(el));
 
   // Stat counter animation
   function countUp(el, target, duration) {
