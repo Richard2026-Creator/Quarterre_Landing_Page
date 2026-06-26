@@ -1,155 +1,227 @@
 navigation:
-  work: "Work"
-  studio: "Studio"
-  contact: "Contact"
-  cta: "Talk to us"
-
+  work: Work
+  studio: Studio
+  contact: Contact
+  cta: Talk to us
 hero:
   headline: |-
     From the fastest car
     on earth. To the world's
-    biggest toy company.
+    biggest toy company. 
   headline_phrase: ""
-  cta: "Start a conversation"
-  image: "images/hero-background.jpg"
-
+  cta: Start a conversation TEST2
+  image: images/hero-background.jpg
 problem:
-  headline: "Quarterre holds {phrase} in a single conversation. Most studios divide that work. We never have."
-  headline_phrase: "product, place and play"
+  headline: Quarterre holds {phrase} in a single conversation. Most studios divide
+    that work. We never have.
+  headline_phrase: product, place and play
   pain_items:
-    - label: "Product. Space."
-      body: "You have a product people love but the moment they encounter it in a room, something doesn't connect. The object is right. The space around it feels like it belongs to someone else."
-    - label: "Brand. Story."
-      body: "The brand has real history. But somewhere along the way the design stopped keeping pace. It still looks like the past. It just doesn't feel like the future."
-    - label: "Culture. Place."
-      body: "Everyone here believes in what you do but walk through the door and nothing tells that story. The work is extraordinary. The place that holds it is ordinary."
-  closing: "Different categories. Different scales. {phrase}"
-  closing_phrase: "The same quality of thought."
-
+    - label: Product. Space.
+      body: You have a product people love but the moment they encounter it in a room,
+        something doesn't connect. The object is right. The space around it
+        feels like it belongs to someone else.
+    - label: Brand. Story.
+      body: The brand has real history. But somewhere along the way the design stopped
+        keeping pace. It still looks like the past. It just doesn't feel like
+        the future.
+    - label: Culture. Place.
+      body: Everyone here believes in what you do but walk through the door and
+        nothing tells that story. The work is extraordinary. The place that
+        holds it is ordinary.
+  closing: Different categories. Different scales. {phrase}
+  closing_phrase: The same quality of thought.
 pillars:
-  heading: "Here is what that looks like."
-  subtitle: "Product, place and play. Not every practice thinks this way."
+  heading: Here is what that looks like.
+  subtitle: Product, place and play. Not every practice thinks this way.
   items:
     - number: "01"
-      title: "Product"
-      body: "Objects with purpose. Designed for the moment they are picked up, and every moment after."
-      image: "images/pillar-product.jpg"
+      title: Product
+      body: Objects with purpose. Designed for the moment they are picked up, and
+        every moment after.
+      image: images/pillar-product.jpg
     - number: "02"
-      title: "Place"
-      body: "Spaces that do not simply exist. They perform. Every decision a considered one."
-      image: "images/pillar-place.png"
+      title: Place
+      body: Spaces that do not simply exist. They perform. Every decision a considered
+        one.
+      image: images/pillar-place.png
     - number: "03"
-      title: "Play"
-      body: "Systems built around human delight. Where the experience is the product."
-      image: "images/pillar-play.png"
-
+      title: Play
+      body: Systems built around human delight. Where the experience is the product.
+      image: images/pillar-play.png
 how:
-  label: "How we work"
-  headline: "Three directors.\n{phrase}\nFrom the start."
-  headline_phrase: "One complete conversation, never handed off."
-  body_1: "The three people you meet in the first session are the three people who do the work. No handoff. No brief passed to a junior team. No dilution between disciplines. The thinking stays connected because the people stay connected."
-  body_2: "Most studios divide a project between specialists. Quarterre converges on it. Product, place and play are not handled separately — they are considered together, from the first question to the last decision."
+  label: How we work
+  headline: |-
+    Three directors.
+    {phrase}
+    From the start.
+  headline_phrase: One complete conversation, never handed off.
+  body_1: The three people you meet in the first session are the three people who
+    do the work. No handoff. No brief passed to a junior team. No dilution
+    between disciplines. The thinking stays connected because the people stay
+    connected.
+  body_2: Most studios divide a project between specialists. Quarterre converges
+    on it. Product, place and play are not handled separately — they are
+    considered together, from the first question to the last decision.
   stats:
     - number: 15
-      caption: "Years in practice"
+      caption: Years in practice
     - number: 3
-      caption: "Points of view"
+      caption: Points of view
     - number: 1
-      caption: "Philosophy"
-  main_image: "images/how-main.jpg"
-  accent_image: "images/how-accent.jpg"
-
+      caption: Philosophy
+  main_image: images/how-main.jpg
+  accent_image: images/how-accent.jpg
 work:
-  label: "Selected work"
-  headline: "Different categories.\nDifferent scales.\n{phrase}"
-  headline_phrase: "The same quality of thought."
-  cta: "Start a conversation →"
+  label: Selected work
+  headline: |-
+    Different categories.
+    Different scales.
+    {phrase}
+  headline_phrase: The same quality of thought.
+  cta: Start a conversation →
   cases:
-    - sector: "Product · Automotive"
-      title: "McLaren"
-      description: "The most aerodynamic road car ever made had almost no room for the person driving it. The luggage had to solve that without the car noticing."
-      hover_detail: "A hypercar with almost no luggage space. We worked with master craftsmen at Schedoni in Modena to create a three-piece set that married luxury leather with precision-engineered composites. It had to feel like it was designed the same day as the car. It did."
-      image: "Quarterre Web Images/Mac.png"
-    - sector: "Play · Product"
-      title: "LEGO"
-      description: "The organisation that proved play changes lives had offices that told its own people to sit down and focus. The building needed to become the argument."
-      hover_detail: "The LEGO Foundation's Copenhagen headquarters needed to embody learning through play for the people delivering it worldwide. We designed five zones around the five skills children build through play. The space reminds the team every day who they are working for. Work became the argument."
-      image: "Quarterre Web Images/LegoPiece.png"
-    - sector: "Place · Residence"
-      title: "Rhome"
-      description: "A home for people who have chosen not to have one."
-      hover_detail: "Nomadic living was a lifestyle choice without a design language. We gave it one. A detachable sleep-work shell, renewable energy, harvested rainwater, expandable pods. Designed to dock in communities. Built from cork and carbon-positive materials. A home that goes where you go."
-      image: "Quarterre Web Images/Rhome 1.png"
-    - sector: "Product · Identity"
-      title: "Passoni"
-      description: "Passoni's identity was inseparable from titanium. The brief was to evolve into carbon fibre without that being the last thing Passoni ever made."
-      hover_detail: "Titanium was Passoni's identity. Carbon fibre was its future. We wove the two together into a frame that carried the DNA of the original without being trapped by it. The Fidia told the industry this brand was still ahead."
-      image: "Quarterre Web Images/Bike 1.png"
-    - sector: "Place · Community"
-      title: "ARC Rooftop Nursery"
-      description: "A community feeding 300 people a week had a roof and nothing on it. The brief was to grow food, prove a model, and make other cities want to copy it."
-      hover_detail: "A foodbank feeding 300 people a week had an empty roof. We designed a modular urban farm where the greenhouse, café and foodbank work as one system. Replicable anywhere. Built to inspire cities that haven't asked the question yet."
-      image: "Quarterre Web Images/Rooftop.png"
-    - sector: "Product · Transport"
-      title: "TRL & Imperial College"
-      description: "Two of Britain's foremost minds in transport asked what an autonomous vehicle should feel like from the inside. Nobody had asked that question seriously before. We did."
-      hover_detail: "Two institutions asked what an autonomous vehicle should feel like from the passenger's perspective. We mocked up semi-standing seats, family zones, wheelchair space and crash-tested every surface. Safety became the design language, not a constraint applied afterwards."
-      image: "Quarterre Web Images/Autonomous.png"
-    - sector: "Product · Automotive"
-      title: "Land-e"
-      description: "A Defender is too iconic to retire. We asked what it would look like if a classic car received the same care as a listed building. The answer was Land-e — retrofitted, reimagined, and ready for another lifetime."
-      hover_detail: "The original Defender's bones were sound. Its future was not. We worked through every element asking what was fundamental to its character and what could be reimagined for an EV world. The result travels lightly, leaves no trace, and feels more itself than ever."
-      image: "Quarterre Web Images/Landrover 3.png"
-    - sector: "Place · Transport"
-      title: "Very Light Rail"
-      description: "A new kind of tram needed a new kind of shelter. Not generic street furniture but a structure with character, drawn from the city around it and designed to become part of it."
-      hover_detail: "Public structures fascinate us because they are multifunctional and live inside people's daily routines. We dug into transport hub research, took inspiration from the cathedral roof nearby, and prototyped dozens of options in VR. The result has elegance, flexibility, and a reason to be remembered."
-      image: "Quarterre Web Images/Very_Light_Railway.png"
-
+    - sector: Product · Automotive
+      title: McLaren
+      description: The most aerodynamic road car ever made had almost no room for the
+        person driving it. The luggage had to solve that without the car
+        noticing.
+      hover_detail: A hypercar with almost no luggage space. We worked with master
+        craftsmen at Schedoni in Modena to create a three-piece set that married
+        luxury leather with precision-engineered composites. It had to feel like
+        it was designed the same day as the car. It did.
+      image: Quarterre Web Images/Mac.png
+    - sector: Play · Product
+      title: LEGO
+      description: The organisation that proved play changes lives had offices that
+        told its own people to sit down and focus. The building needed to become
+        the argument.
+      hover_detail: The LEGO Foundation's Copenhagen headquarters needed to embody
+        learning through play for the people delivering it worldwide. We
+        designed five zones around the five skills children build through play.
+        The space reminds the team every day who they are working for. Work
+        became the argument.
+      image: Quarterre Web Images/LegoPiece.png
+    - sector: Place · Residence
+      title: Rhome
+      description: A home for people who have chosen not to have one.
+      hover_detail: Nomadic living was a lifestyle choice without a design language.
+        We gave it one. A detachable sleep-work shell, renewable energy,
+        harvested rainwater, expandable pods. Designed to dock in communities.
+        Built from cork and carbon-positive materials. A home that goes where
+        you go.
+      image: Quarterre Web Images/Rhome 1.png
+    - sector: Product · Identity
+      title: Passoni
+      description: Passoni's identity was inseparable from titanium. The brief was to
+        evolve into carbon fibre without that being the last thing Passoni ever
+        made.
+      hover_detail: Titanium was Passoni's identity. Carbon fibre was its future. We
+        wove the two together into a frame that carried the DNA of the original
+        without being trapped by it. The Fidia told the industry this brand was
+        still ahead.
+      image: Quarterre Web Images/Bike 1.png
+    - sector: Place · Community
+      title: ARC Rooftop Nursery
+      description: A community feeding 300 people a week had a roof and nothing on it.
+        The brief was to grow food, prove a model, and make other cities want to
+        copy it.
+      hover_detail: A foodbank feeding 300 people a week had an empty roof. We
+        designed a modular urban farm where the greenhouse, café and foodbank
+        work as one system. Replicable anywhere. Built to inspire cities that
+        haven't asked the question yet.
+      image: Quarterre Web Images/Rooftop.png
+    - sector: Product · Transport
+      title: TRL & Imperial College
+      description: Two of Britain's foremost minds in transport asked what an
+        autonomous vehicle should feel like from the inside. Nobody had asked
+        that question seriously before. We did.
+      hover_detail: Two institutions asked what an autonomous vehicle should feel like
+        from the passenger's perspective. We mocked up semi-standing seats,
+        family zones, wheelchair space and crash-tested every surface. Safety
+        became the design language, not a constraint applied afterwards.
+      image: Quarterre Web Images/Autonomous.png
+    - sector: Product · Automotive
+      title: Land-e
+      description: A Defender is too iconic to retire. We asked what it would look
+        like if a classic car received the same care as a listed building. The
+        answer was Land-e — retrofitted, reimagined, and ready for another
+        lifetime.
+      hover_detail: The original Defender's bones were sound. Its future was not. We
+        worked through every element asking what was fundamental to its
+        character and what could be reimagined for an EV world. The result
+        travels lightly, leaves no trace, and feels more itself than ever.
+      image: Quarterre Web Images/Landrover 3.png
+    - sector: Place · Transport
+      title: Very Light Rail
+      description: A new kind of tram needed a new kind of shelter. Not generic street
+        furniture but a structure with character, drawn from the city around it
+        and designed to become part of it.
+      hover_detail: Public structures fascinate us because they are multifunctional
+        and live inside people's daily routines. We dug into transport hub
+        research, took inspiration from the cathedral roof nearby, and
+        prototyped dozens of options in VR. The result has elegance,
+        flexibility, and a reason to be remembered.
+      image: Quarterre Web Images/Very_Light_Railway.png
 studio:
-  label: "Who we are"
-  headline: "Serious product. Serious place. {phrase}"
-  headline_phrase: "Serious play-led design."
+  label: Who we are
+  headline: Serious product. Serious place. {phrase}
+  headline_phrase: Serious play-led design.
   body_sections:
-    team_label: "The team"
-    team_body: "Three directors. Fifteen years of practice. A shared curiosity that travels across every category they have worked in."
-    approach_label: "The approach"
-    approach_body: "Not organised around sectors — but around a quality of thinking that moves with the problem."
-    scale_label: "The scale"
-    scale_body: "Quarterre has stayed three directors deliberately. The work requires people who have spent fifteen years learning to think together. That cannot be hired in. When you work with Quarterre, the people in the room are the studio."
-    commitment_label: "The commitment"
-    commitment_body: "The directors who take the first brief are the ones who resolve it. That has always been the point."
+    team_label: The team
+    team_body: Three directors. Fifteen years of practice. A shared curiosity that
+      travels across every category they have worked in.
+    approach_label: The approach
+    approach_body: Not organised around sectors — but around a quality of thinking
+      that moves with the problem.
+    scale_label: The scale
+    scale_body: Quarterre has stayed three directors deliberately. The work requires
+      people who have spent fifteen years learning to think together. That
+      cannot be hired in. When you work with Quarterre, the people in the room
+      are the studio.
+    commitment_label: The commitment
+    commitment_body: The directors who take the first brief are the ones who resolve
+      it. That has always been the point.
   directors:
     clive:
-      name: "Clive Hartley"
+      name: Clive Hartley
       bio:
-        - "Transport Design at Coventry. MA at the Royal College of Art, London."
-        - "Has worked for Mercedes-Benz, Nissan and Porsche Design, most recently as Transport Design Manager at their studio in Zell am See, Austria."
-        - "A broad curiosity in current affairs, arts and culture informs a design perspective that draws from well beyond the studio."
-      portrait: "images/director-clive.png"
+        - Transport Design at Coventry. MA at the Royal College of Art, London.
+        - Has worked for Mercedes-Benz, Nissan and Porsche Design, most recently
+          as Transport Design Manager at their studio in Zell am See, Austria.
+        - A broad curiosity in current affairs, arts and culture informs a
+          design perspective that draws from well beyond the studio.
+      portrait: images/director-clive.png
     daniele:
-      name: "Dr Daniele Ceccomori"
+      name: Dr Daniele Ceccomori
       bio:
-        - "Mechanical Engineering at Politecnico di Milano. Transport Design at Art Center College of Design."
-        - "Formerly Head of Product Design at Bentley, with project credits spanning Ford, Honda, Rolls-Royce and Ducati."
-        - "A passion for classic Italian design drives his rare ability to hold technical rigour and fresh aesthetic expression in the same hand."
-      portrait: "images/director-daniele.png"
+        - Mechanical Engineering at Politecnico di Milano. Transport Design at
+          Art Center College of Design.
+        - Formerly Head of Product Design at Bentley, with project credits
+          spanning Ford, Honda, Rolls-Royce and Ducati.
+        - A passion for classic Italian design drives his rare ability to hold
+          technical rigour and fresh aesthetic expression in the same hand.
+      portrait: images/director-daniele.png
     nick:
-      name: "Nick Mannion"
+      name: Nick Mannion
       bio:
-        - "Where others design objects, Nick designs moments. Working closely with LEGO, he has built toy concepts, interactive experiences and playful learning activities that put the human at the centre of every decision."
-        - "His limited-edition Supermodified Mod:1 and Mod:2 robots have become cult collectables — proof that when character and form are perfectly matched, the result is something people genuinely want to keep."
-      portrait: "images/director-nick.png"
-
+        - Where others design objects, Nick designs moments. Working closely
+          with LEGO, he has built toy concepts, interactive experiences and
+          playful learning activities that put the human at the centre of every
+          decision.
+        - His limited-edition Supermodified Mod:1 and Mod:2 robots have become
+          cult collectables — proof that when character and form are perfectly
+          matched, the result is something people genuinely want to keep.
+      portrait: images/director-nick.png
 invite:
-  label: "The right fit"
-  headline: "You have the ambition.\nWe have the experience to bring it to life."
-  cta: "Let's begin"
-  view_link: "View the work"
-
+  label: The right fit
+  headline: |-
+    You have the ambition.
+    We have the experience to bring it to life.
+  cta: Let's begin
+  view_link: View the work
 footer:
-  copyright: "© 2026 Quarterre. London."
-  work: "Work"
-  studio: "Studio"
-  contact: "Contact"
-  cta: "Talk to us"
+  copyright: © 2026 Quarterre. London.
+  work: Work
+  studio: Studio
+  contact: Contact
+  cta: Talk to us
