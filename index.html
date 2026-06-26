@@ -1999,7 +1999,7 @@ goTo(0);
 async function loadCmsContent() {
   let data;
   try {
-    const res = await fetch('_data/content.yaml');
+    const res = await fetch('_data/content.yaml?t=' + Date.now());
     if (!res.ok) return;
     data = jsyaml.load(await res.text());
   } catch (e) {
