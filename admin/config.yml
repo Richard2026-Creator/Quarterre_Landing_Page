@@ -158,7 +158,6 @@ collections:
                 name: cases
                 widget: list
                 min: 8
-                max: 8
                 fields:
                   - { label: "Sector tags",              name: sector,       widget: string, hint: "e.g. Product · Automotive" }
                   - { label: "Client / Project title",   name: title,        widget: string }

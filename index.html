@@ -1958,8 +1958,8 @@
   statNums.forEach(el => statObserver.observe(el));
 </script>
 <script>
-const track = document.querySelector('.cases-track');
-const pages = document.querySelectorAll('.cases-page');
+let track = document.querySelector('.cases-track');
+let pages = document.querySelectorAll('.cases-page');
 const arrowLeft = document.querySelector('.cases-arrow-left');
 const arrowRight = document.querySelector('.cases-arrow-right');
 let current = 0;
@@ -1972,12 +1972,7 @@ function goTo(index) {
   arrowRight.style.opacity = current === pages.length - 1 ? '0.3' : '1';
 }
 
-arrowRight.addEventListener('click', () => goTo(current + 1));
-arrowLeft.addEventListener('click', () => goTo(current - 1));
-
-goTo(0);
-
-(function () {
+function bindCaseTouch() {
   if (!('ontouchstart' in window)) return;
   document.querySelectorAll('.case').forEach(function (caseEl) {
     caseEl.addEventListener('touchstart', function (e) {
@@ -1988,7 +1983,23 @@ goTo(0);
       if (!isActive) caseEl.classList.add('touch-active');
     }, { passive: true });
   });
-}());
+}
+
+// Re-reads .cases-track / .cases-page from the DOM and resets the carousel
+// to page 0. Called on load, and again after loadCmsContent() regenerates
+// the case cards so the count isn't stuck at the hardcoded fallback of 8.
+function initCasesCarousel() {
+  track = document.querySelector('.cases-track');
+  pages = document.querySelectorAll('.cases-page');
+  current = 0;
+  goTo(0);
+  bindCaseTouch();
+}
+
+arrowRight.addEventListener('click', () => goTo(current + 1));
+arrowLeft.addEventListener('click', () => goTo(current - 1));
+
+initCasesCarousel();
 </script>
 
 <script>
@@ -2191,28 +2202,42 @@ async function loadCmsContent() {
     const workCtaEl = document.querySelector('.work-link');
     if (workCtaEl && wk.cta) workCtaEl.textContent = wk.cta;
 
-    // Case studies — positional (DOM order matches YAML order)
-    const caseEls = document.querySelectorAll('#work .case');
-    if (wk.cases) {
-      wk.cases.forEach(function(item, i) {
-        const el = caseEls[i];
-        if (!el) return;
-
-        const imgEl    = el.querySelector('img.case-img');
-        const hoverEl  = el.querySelector('.case-hover p');
-        const sectorEl = el.querySelector('.case-sector');
-        const titleEl  = el.querySelector('.case-title');
-        const descEl   = el.querySelector('p.case-desc');
-
-        // Only update src if YAML value differs
-        if (imgEl && item.image && imgEl.getAttribute('src') !== item.image) {
-          imgEl.src = item.image;
-        }
-        if (hoverEl  && item.hover_detail) hoverEl.textContent  = item.hover_detail;
-        if (sectorEl && item.sector)       sectorEl.textContent = item.sector;
-        if (titleEl  && item.title)        titleEl.textContent  = item.title;
-        if (descEl   && item.description)  descEl.textContent   = item.description;
-      });
+    // Case studies — rebuilt from scratch so the count isn't capped at the
+    // hardcoded fallback of 8 (the CMS list field has no upper limit).
+    if (wk.cases && wk.cases.length) {
+      const escapeHtml = function(str) {
+        return String(str).replace(/[&<>"']/g, function(c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      };
+      const perPage = 4;
+      let pagesHtml = '';
+      for (let p = 0; p < wk.cases.length; p += perPage) {
+        const pageItems = wk.cases.slice(p, p + perPage);
+        pagesHtml += '<div class="cases-page">' + pageItems.map(function(item) {
+          const sector = escapeHtml(item.sector || '');
+          const title  = escapeHtml(item.title || '');
+          const desc   = escapeHtml(item.description || '');
+          const hover  = escapeHtml(item.hover_detail || '');
+          const image  = escapeHtml(item.image || '');
+          return '<div class="case">'
+            + '<div class="case-img-wrap">'
+            + '<img class="case-img" src="' + image + '" alt="' + title + '">'
+            + '<div class="case-hover"><p>' + hover + '</p></div>'
+            + '</div>'
+            + '<div class="case-info">'
+            + '<div class="case-sector">' + sector + '</div>'
+            + '<div class="case-title">' + title + '</div>'
+            + '<p class="case-desc">' + desc + '</p>'
+            + '</div>'
+            + '</div>';
+        }).join('') + '</div>';
+      }
+      const trackEl = document.querySelector('.cases-track');
+      if (trackEl) {
+        trackEl.innerHTML = pagesHtml;
+        initCasesCarousel();
+      }
     }
   }
 
