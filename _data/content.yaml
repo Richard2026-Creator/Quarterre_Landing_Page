@@ -162,6 +162,17 @@ work:
         prototyped dozens of options in VR. The result has elegance,
         flexibility, and a reason to be remembered.
       image: Quarterre Web Images/Very_Light_Railway.png
+    - sector: PRODUCT · IDENTITY
+      hover_detail: No history. No margin for error. We worked with Reap's senior team
+        to shape a visual language from scratch, then brought in TotalSim to
+        refine the frame's aerodynamics without harming its looks. The result
+        outperformed established names in independent tests, won competitions,
+        and turned heads.
+      description: A bike brand with no history had to beat rivals with decades of it.
+        We had to build a visual language from nothing and prove, from day one,
+        that it could compete with triathlon's established names.
+      title: REAP (Vulcan)
+      image: images/reap-vulcan-enve-da-2021-side.png
 studio:
   label: Who we are
   headline: Serious product. Serious place. {phrase}
