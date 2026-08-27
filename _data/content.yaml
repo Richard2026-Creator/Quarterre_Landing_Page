@@ -184,6 +184,42 @@ work:
         naval architects to package the H55 above and below decks, without pace
         costing space. Designed to beat the best. It does.
       image: images/2-2.jpg
+    - title: Ingka (Ikea — NPD concepts for services)
+      sector: Place · Live & Subscribe
+      description: The world's biggest furniture retailer doesn't want to be known for
+        furniture anymore. We were asked to imagine what life at home looks like
+        when it's a service you subscribe to, not just something you furnish.
+      hover_detail: Furniture built the brand. What comes next might not be furniture
+        at all. Starting from Ikea's people and planet positive vision, we
+        explored food, energy and finance through a year of workshops and
+        storyboards with the in-house team. Ideas, made visible enough to act
+        on.
+      image: images/click-grow-s4.jpg
+    - title: AKG (Buffalo AKG Art Museum — Creative Commons)
+      sector: Place · Experience
+      description: >+
+        A gallery of masterpieces just added a room where nobody has to stand
+        still. Buffalo AKG Art Museum asked us to turn its newest space into
+        somewhere people could get their hands on the idea of art itself.
+
+      hover_detail: Looking at art and making it are different experiences. We
+        designed themed zones for open-ended, guided play, positioned so small
+        children and wheelchair users could reach everything easily. Open,
+        inviting and playful, it's a space built for anyone to join in.
+      image: images/20230804_183811-copy.jpg
+    - title: ISRI (Wave Seat)
+      description: >+
+        Millions of us sit in seats made by a company we've never heard of, and
+        that's exactly the point. ISRI challenged us to design something
+        impossible to ignore, a hero concept for what an autonomous interior
+        could be.
+
+      hover_detail: ISRI's touchpoints disappear into daily use. This one had to do
+        the opposite. The Wave Seat rotates through 180 degrees, extends its
+        bolsters for support, and adds fold-out tray tables on a kinematic
+        mechanism. The best seat in the house, built for a driverless car.
+      sector: Product · Transport
+      image: images/2015-08-25_wave-seat-sketch-40.jpg
 studio:
   label: Who we are
   headline: Serious product. Serious place. {phrase}
