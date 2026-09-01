@@ -243,6 +243,16 @@ work:
       title: "The LEGO Foundation: Enabling play anywhere"
       sector: Play · Learn
       image: images/add-a-little-bit-of-body-text-2-.png
+    - description: A workshop with 144 years of history and four generations of
+        craftsmanship had never put its own name on a bag. Schedoni Modena's
+        first collection had to carry all of that weight and still feel new.
+      hover_detail: "Zero collections of their own. We moved from research through
+        sketches, 3D modelling and pattern-making, then shaped the brand itself:
+        values, store concepts, identity, and the stand at the Quail, Pebble
+        Beach. Stronger visibility, stronger engagement, a brand ready to grow."
+      title: Schedoni Modena
+      sector: Product · Identity
+      image: images/rwk_schedoni_01_argb_high.jpg
 studio:
   label: Who we are
   headline: Serious product. Serious place. {phrase}
