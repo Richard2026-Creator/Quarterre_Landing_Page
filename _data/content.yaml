@@ -220,6 +220,16 @@ work:
         mechanism. The best seat in the house, built for a driverless car.
       sector: Product · Transport
       image: images/2015-08-25_wave-seat-sketch-40.jpg
+    - description: Most bike storage is something you hide in a cupboard, not
+        something you want on show. Furniture For Bikes set out to replace the
+        hook and the wall bracket with something worth looking at.
+      hover_detail: We designed three products, Hood, Branchline and Shadow, made in
+        the UK to hold bikes securely while protecting frames and housing
+        helmets, locks and accessories. Hotels worldwide adopted them, and
+        Wallpaper featured the range at Milan's Handmade show in 2010.
+      sector: Product · Transport
+      title: Furniture For Bikes
+      image: images/hood_cream-hires-guvnor.jpg
 studio:
   label: Who we are
   headline: Serious product. Serious place. {phrase}
