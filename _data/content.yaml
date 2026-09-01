@@ -230,6 +230,19 @@ work:
       sector: Product · Transport
       title: Furniture For Bikes
       image: images/hood_cream-hires-guvnor.jpg
+    - description: >+
+        The world's most famous toy company built a play programme with none of
+        its bricks in it. Create With Anything had to give children without
+        access to LEGO the same chance to build and problem-solve, using
+        whatever they could find.
+
+      hover_detail: This had to build with rubbish. We designed fastener systems from
+        discarded bottles and card, and a power motor from a tin can, then
+        wireframed a teacher's app for age groups. Piloted in Colombia and
+        China, built for play anywhere.
+      title: "The LEGO Foundation: Enabling play anywhere"
+      sector: Play · Learn
+      image: images/1-phone.jpg
 studio:
   label: Who we are
   headline: Serious product. Serious place. {phrase}
