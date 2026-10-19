@@ -1431,6 +1431,56 @@
   /* Italic editorial text — Freight in oblique for quotes and case hover */
   .rc-quote,
   .case-hover p   { font-family: 'Freight Text Pro', serif; font-weight: 300; line-height: 1.62; }
+
+  /* CONTACT PANEL — Contact links open this instead of relying on a
+     default mail app, which many visitors don't have set up */
+  .contact-panel {
+    position: fixed; inset: 0; z-index: 300;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+    background: rgba(26,24,21,0.72);
+    backdrop-filter: blur(6px);
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  .contact-panel.is-open { opacity: 1; visibility: visible; }
+  .contact-panel-box {
+    position: relative;
+    width: 100%; max-width: 460px;
+    background: var(--bone);
+    color: var(--ink);
+    padding: 48px clamp(20px, 6vw, 40px) 32px;
+    text-align: center;
+  }
+  .contact-panel-close {
+    position: absolute; top: 12px; right: 16px;
+    background: none; border: 0; cursor: pointer;
+    font-size: 28px; line-height: 1; color: var(--ink-light);
+  }
+  .contact-panel-close:hover { color: var(--ink); }
+  .contact-panel-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-light); margin-bottom: 12px;
+  }
+  .contact-panel-email {
+    display: block;
+    font-family: var(--serif); font-size: clamp(17px, 5vw, 24px);
+    color: var(--ink); text-decoration: none;
+    overflow-wrap: anywhere; margin-bottom: 32px;
+  }
+  .contact-panel-email:hover { color: var(--gold); }
+  .contact-panel-actions { display: flex; flex-direction: column; gap: 10px; }
+  .contact-panel-actions a, .contact-panel-actions button {
+    display: block; width: 100%;
+    padding: 14px 20px;
+    font-family: var(--sans); font-size: 12px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer;
+    border: 0.5px solid var(--ink); background: transparent; color: var(--ink);
+    transition: background 0.2s, color 0.2s;
+  }
+  .contact-panel-actions .is-primary { background: var(--ink); color: var(--bone); }
+  .contact-panel-actions a:hover, .contact-panel-actions button:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
 </style>
 </head>
 <body>
@@ -2362,6 +2412,87 @@ async function loadCmsContent() {
 }
 
 loadCmsContent();
+</script>
+<!-- CONTACT PANEL -->
+<div class="contact-panel" id="contact-panel" role="dialog" aria-modal="true" aria-labelledby="contact-panel-label" aria-hidden="true">
+  <div class="contact-panel-box">
+    <button class="contact-panel-close" id="contact-panel-close" aria-label="Close">&times;</button>
+    <div class="contact-panel-label" id="contact-panel-label">Get in touch</div>
+    <a class="contact-panel-email" id="contact-panel-email" href="#"></a>
+    <div class="contact-panel-actions">
+      <button type="button" class="is-primary" id="contact-panel-copy">Copy email address</button>
+      <a id="contact-panel-gmail" href="#" target="_blank" rel="noopener">Open in Gmail</a>
+      <a id="contact-panel-outlook" href="#" target="_blank" rel="noopener">Open in Outlook</a>
+      <a id="contact-panel-app" href="#">Open my email app</a>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Contact links: open the contact panel. The mailto href stays on the
+   link as a fallback, and the panel reads the address from it, so the
+   CMS "Links" values still apply. */
+(function() {
+  const panel = document.getElementById('contact-panel');
+  const emailEl = document.getElementById('contact-panel-email');
+  const copyBtn = document.getElementById('contact-panel-copy');
+  let lastFocus = null;
+
+  function openPanel(mailto) {
+    const url = new URL(mailto);
+    const email = decodeURIComponent(url.pathname);
+    const subject = url.searchParams.get('subject') || '';
+    emailEl.textContent = email;
+    emailEl.href = mailto;
+    document.getElementById('contact-panel-app').href = mailto;
+    document.getElementById('contact-panel-gmail').href =
+      'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(email) +
+      '&su=' + encodeURIComponent(subject);
+    document.getElementById('contact-panel-outlook').href =
+      'https://outlook.office.com/mail/deeplink/compose?to=' + encodeURIComponent(email) +
+      '&subject=' + encodeURIComponent(subject);
+    copyBtn.textContent = 'Copy email address';
+    lastFocus = document.activeElement;
+    panel.classList.add('is-open');
+    panel.setAttribute('aria-hidden', 'false');
+    copyBtn.focus();
+  }
+  function closePanel() {
+    panel.classList.remove('is-open');
+    panel.setAttribute('aria-hidden', 'true');
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[data-link="email"]');
+    if (!link) return;
+    e.preventDefault();
+    openPanel(link.href);
+  });
+  copyBtn.addEventListener('click', function() {
+    const email = emailEl.textContent;
+    const done = function() { copyBtn.textContent = 'Copied'; };
+    // If copying is blocked, highlight the address so it can be copied by hand
+    const fallback = function() {
+      const range = document.createRange();
+      range.selectNodeContents(emailEl);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      copyBtn.textContent = 'Press Ctrl+C to copy';
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(email).then(done, fallback);
+    } else {
+      fallback();
+    }
+  });
+  document.getElementById('contact-panel-close').addEventListener('click', closePanel);
+  panel.addEventListener('click', function(e) { if (e.target === panel) closePanel(); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && panel.classList.contains('is-open')) closePanel();
+  });
+})();
 </script>
 </body>
 </html>
