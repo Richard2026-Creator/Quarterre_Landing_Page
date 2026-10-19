@@ -1446,8 +1446,8 @@
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
     <li><a href="#who">Studio</a></li>
-    <li><a href="#invite">Contact</a></li>
-    <li><a href="#invite" class="nav-cta">Talk to us</a></li>
+    <li><a href="mailto:richard@creativise.info?subject=Quarterre%20enquiry" data-link="email">Contact</a></li>
+    <li><a href="https://calendly.com/richard-creativise/meeting-with-richard" class="nav-cta" data-link="book" target="_blank" rel="noopener">Talk to us</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
     <span></span>
@@ -1461,7 +1461,7 @@
   <ul class="nav-overlay-links">
     <li><a href="#work">Work</a></li>
     <li><a href="#who">Studio</a></li>
-    <li><a href="#invite">Contact</a></li>
+    <li><a href="mailto:richard@creativise.info?subject=Quarterre%20enquiry" data-link="email">Contact</a></li>
   </ul>
 </div>
 
@@ -1483,7 +1483,7 @@
       on earth. To the world's<br>
       biggest toy company.
     </h1>
-    <a href="/contact" class="hero-cta">Start a conversation</a>
+    <a href="https://calendly.com/richard-creativise/meeting-with-richard" class="hero-cta" data-link="book" target="_blank" rel="noopener">Start a conversation</a>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -1582,7 +1582,7 @@
 </section>
 
 <div class="section-cta">
-  <a href="/contact">See what's possible</a>
+  <a href="https://calendly.com/richard-creativise/meeting-with-richard" data-link="book" target="_blank" rel="noopener">See what's possible</a>
 </div>
 <div class="how-band band-draw"></div>
 
@@ -1629,7 +1629,7 @@
         Different categories.<br>Different scales.<br><em>The same quality of thought.</em>
       </h2>
     </div>
-    <a href="#invite" class="work-link">Start a conversation &rarr;</a>
+    <a href="https://calendly.com/richard-creativise/meeting-with-richard" class="work-link" data-link="book" target="_blank" rel="noopener">Start a conversation &rarr;</a>
   </div>
   <div class="cases-scroll-wrap">
   <button class="cases-arrow cases-arrow-left" aria-label="Previous">&#8592;</button>
@@ -1818,7 +1818,7 @@
   <h2 class="invite-display-hl reveal reveal-delay-1">You have the ambition.<br>We have the experience to bring it to life.</h2>
   <hr class="invite-rule">
   <div class="reveal reveal-delay-2">
-    <a href="mailto:hello@quarterre.com" class="invite-cta">Let's begin</a>
+    <a href="https://calendly.com/richard-creativise/meeting-with-richard" class="invite-cta" data-link="book" target="_blank" rel="noopener">Let's begin</a>
   </div>
   <a href="#work" class="invite-view-link reveal reveal-delay-3">View the work</a>
 </section>
@@ -1832,8 +1832,8 @@
   <ul class="footer-links">
     <li><a href="#work">Work</a></li>
     <li><a href="#who">Studio</a></li>
-    <li><a href="#invite">Contact</a></li>
-    <li><a href="#invite" class="nav-cta">Talk to us</a></li>
+    <li><a href="mailto:richard@creativise.info?subject=Quarterre%20enquiry" data-link="email">Contact</a></li>
+    <li><a href="https://calendly.com/richard-creativise/meeting-with-richard" class="nav-cta" data-link="book" target="_blank" rel="noopener">Talk to us</a></li>
   </ul>
 </footer>
 
@@ -2015,6 +2015,24 @@ async function loadCmsContent() {
     data = jsyaml.load(await res.text());
   } catch (e) {
     return; // silently keep hardcoded fallback
+  }
+
+  // ── LINKS ─────────────────────────────────────────────────────────────
+  // Booking buttons and Contact links read their destinations from here
+  const links = data.links;
+  if (links) {
+    if (links.booking_url) {
+      document.querySelectorAll('a[data-link="book"]').forEach(function(a) {
+        a.href = links.booking_url;
+      });
+    }
+    if (links.contact_email) {
+      const mail = 'mailto:' + links.contact_email +
+        (links.email_subject ? '?subject=' + encodeURIComponent(links.email_subject) : '');
+      document.querySelectorAll('a[data-link="email"]').forEach(function(a) {
+        a.href = mail;
+      });
+    }
   }
 
   // ── NAVIGATION ────────────────────────────────────────────────────────

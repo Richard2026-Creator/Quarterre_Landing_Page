@@ -17,6 +17,15 @@ collections:
         file: _data/content.yaml
         fields:
 
+          # ─── LINKS ────────────────────────────────────────────────────
+          - label: Links
+            name: links
+            widget: object
+            fields:
+              - { label: "Booking link (Calendly) for all 'book a call' buttons", name: booking_url,   widget: string }
+              - { label: "Contact email address",                              name: contact_email, widget: string }
+              - { label: "Email subject line",                                 name: email_subject, widget: string, default: "Quarterre enquiry" }
+
           # ─── NAVIGATION ───────────────────────────────────────────────
           - label: Navigation
             name: navigation
