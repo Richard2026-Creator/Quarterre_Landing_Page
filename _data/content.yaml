@@ -1,10 +1,10 @@
 links:
-  booking_url: https://calendly.com/richard-creativise/meeting-with-richard
-  contact_email: richard@creativise.info
+  booking_url: https://calendly.com/quarterre-info/30min
+  contact_email: info@quarterre.com
   email_subject: Quarterre enquiry
 enquiry:
   enabled: true
-  recipient_email: richard@creativise.info
+  recipient_email: info@quarterre.com
   heading: Tell us about your project
   success_message: Thank you. We'll be in touch shortly.
 navigation:
