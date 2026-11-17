@@ -32,7 +32,7 @@ collections:
             widget: object
             fields:
               - { label: "Show the enquiry form when Contact is clicked", name: enabled, widget: boolean, default: true }
-              - { label: "Send enquiries to (email address)", name: recipient_email, widget: string, hint: "After changing this, send one test enquiry. FormSubmit emails the new address an activation link, which must be clicked once before enquiries arrive." }
+              - { label: "Send enquiries to (email address)", name: recipient_email, widget: string, hint: "Enquiries are emailed here by the website itself. After changing it, send one test enquiry and check it arrives (look in Junk the first time)." }
               - { label: "Form heading", name: heading, widget: string, default: "Tell us about your project" }
               - { label: "Thank-you message", name: success_message, widget: string, default: "Thank you. We'll be in touch shortly." }
 

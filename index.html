@@ -2588,9 +2588,9 @@ loadCmsContent();
     }
   });
 
-  // Enquiry form: sent through FormSubmit (formsubmit.co), which emails each
-  // enquiry to the address in data-recipient. A new address has to be
-  // confirmed once, via the activation link FormSubmit emails to it.
+  // Enquiry form: posted to send-enquiry.php on the hosting, which emails it
+  // to the CMS "Enquiry Form" recipient. Needs PHP, so it only sends from the
+  // live site on Krystal, not from the GitHub Pages copy.
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     if (!form.reportValidity()) return;
@@ -2604,7 +2604,7 @@ loadCmsContent();
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     statusEl.textContent = '';
-    fetch('https://formsubmit.co/ajax/' + encodeURIComponent(form.dataset.recipient), {
+    fetch('send-enquiry.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
@@ -2612,14 +2612,12 @@ loadCmsContent();
         email: f.email.value,
         company: f.company.value,
         message: f.message.value,
-        _subject: (form.dataset.subject || 'Website enquiry') + ' from ' + f.name.value,
-        _template: 'table',
-        _captcha: 'false'
+        _honey: f._honey.value
       })
     })
       .then(function(res) { return res.json(); })
       .then(function(data) {
-        if (String(data.success) === 'true') { showSent(); return; }
+        if (data.success === true) { showSent(); return; }
         console.warn('Enquiry form:', data.message);
         throw new Error(data.message);
       })
